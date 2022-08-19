@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cook.co.uk/" targetNamespace="http://www.cook.co.uk/" elementFormDefault="qualified">
+    <xsd:include schemaLocation="RecipeTypes.xsd"/>
+    <xsd:element name="RecipeBook">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Recipe" type="RecipeStructure" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                        <xsd:documentation>Recipe</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="RecipeStructure">
+            <xsd:annotation>
+                <xsd:documentation>Recipe Structue</xsd:documentation>
+            </xsd:annotation>
+            <xsd:sequence>
+                <xsd:element name="Name" type="NaturalLanguageRecipeNameStructure">
+                    <xsd:annotation>
+                        <xsd:documentation>Name of recipe</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Serves" type="xsd:integer">
+                    <xsd:annotation>
+                        <xsd:documentation>Number of people it servers</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Ingredients">
+                    <xsd:annotation>
+                        <xsd:documentation>List of ingredients</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Ingredient" type="IngredientStructure" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+            <xsd:attributeGroup ref="ModificationGroup"/>
+    </xsd:complexType>
+    <xsd:complexType name="IngredientStructure">
+        <xsd:annotation>
+            <xsd:documentation>Ingredient details</xsd:documentation>
+        </xsd:annotation>
+            <xsd:sequence>
+                <xsd:element name="Name" type="xsd:string"/>
+                <xsd:element name="Amount" type="xsd:string"/>
+                <xsd:element name="Units" type="xsd:string"/>
+            </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

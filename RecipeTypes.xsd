@@ -1,0 +1,38 @@
+<xsd:schema version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cook.co.uk/" targetNamespace="http://www.cook.co.uk/" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>    
+    <xsd:complexType name="NaturalLanguageRecipeNameStructure">
+        <xsd:annotation>
+            <xsd:documentation>@lang. ISO language code (default is en)
+            A string containing a phrase in a natural language name that requires at least one character of text and forbids certain reserved characters. </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="RecipeNameType">
+                <xsd:attribute ref="xml:lang"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:simpleType name="RecipeNameType">
+        <xsd:annotation>
+            <xsd:documentation>A name that requires at least one character of text and forbids certain reserved characters. </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="StringType">
+            <xsd:maxLength value="48"/>
+            <xsd:pattern value="[^,\[\]\{\}\?$£%\^=@#;:]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="StringType">
+        <xsd:annotation>
+            <xsd:documentation>A restriction of W3C XML Schema's string that requires at least one character of text. </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:attributeGroup name="ModificationGroup">
+        <xsd:annotation>
+            <xsd:documentation>Grouping for modifications metadata.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="CreationDateTime" type="xsd:dateTime" use="optional"/>
+        <xsd:attribute name="ModificationDateTime" type="xsd:dateTime" use="optional"/>
+    </xsd:attributeGroup>
+</xsd:schema>

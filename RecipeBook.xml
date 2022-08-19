@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecipeBook xmlns="http://www.cook.co.uk/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cook.co.uk/ RecipeBook.xsd">
+	<Recipe CreationDateTime="2022-08-19T10:30:00" ModificationDateTime="2022-08-19T10:30:00">
+		<Name>Pancakes</Name>
+		<Serves>4</Serves>
+		<Ingredients>
+			<Ingredient>
+				<Name>Flour</Name>
+				<Amount>125</Amount>
+				<Units>g</Units>
+			</Ingredient>
+			<Ingredient>
+				<Name>Egg</Name>
+				<Amount>1</Amount>
+				<Units>oz</Units>
+			</Ingredient>
+			<Ingredient>
+				<Name>Milk</Name>
+				<Amount>300</Amount>
+				<Units>ml</Units>
+			</Ingredient>
+		</Ingredients>
+	</Recipe>
+</RecipeBook>
